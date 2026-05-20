@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Heart, ShoppingBag } from "lucide-react";
-import { products, formatBRL, waLink, type Product } from "@/lib/products";
+import { products, formatBRL, waLink, type Product, type ProductCategory } from "@/lib/products";
+import { useCart } from "@/lib/cart-context";
 
 function Card({ p, onAdd }: { p: Product; onAdd: (p: Product) => void }) {
   const [hover, setHover] = useState(false);
@@ -50,19 +51,26 @@ function Card({ p, onAdd }: { p: Product; onAdd: (p: Product) => void }) {
   );
 }
 
-export function ProductGrid({ onAdd }: { onAdd: (p: Product) => void }) {
+export function ProductGrid({
+  limit,
+  filterCategory,
+}: {
+  limit?: number;
+  filterCategory?: ProductCategory | null;
+}) {
+  const { addToCart } = useCart();
+
+  const all = filterCategory
+    ? products.filter((p) => p.category === filterCategory)
+    : products;
+
+  const displayed = limit != null ? all.slice(0, limit) : all;
+
   return (
-    <section id="produtos" className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20">
-      <div className="flex items-end justify-between mb-10 gap-4 flex-wrap">
-        <div>
-          <p className="text-xs uppercase tracking-widest text-gold mb-2">Destaques</p>
-          <h2 className="font-display text-3xl sm:text-4xl font-bold">Produtos em destaque</h2>
-        </div>
-        <p className="text-sm text-muted-foreground max-w-sm">Peças selecionadas a dedo para quem deixa o estilo falar.</p>
-      </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {products.map((p) => <Card key={p.id} p={p} onAdd={onAdd} />)}
-      </div>
-    </section>
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {displayed.map((p) => (
+        <Card key={p.id} p={p} onAdd={addToCart} />
+      ))}
+    </div>
   );
 }

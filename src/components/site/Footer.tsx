@@ -1,9 +1,10 @@
 import { MapPin, Phone, Instagram } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 import logo from "@/assets/logo-soulside.jpg";
 
 export function Footer() {
   return (
-    <footer id="contato" className="border-t border-border bg-card/40">
+    <footer className="border-t border-border bg-card/40">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
           <div>
@@ -17,10 +18,10 @@ export function Footer() {
           <div>
             <h4 className="text-sm font-semibold mb-4 uppercase tracking-wider">Loja</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><a href="#inicio" className="hover:text-gold">Início</a></li>
-              <li><a href="#produtos" className="hover:text-gold">Produtos</a></li>
-              <li><a href="#colecoes" className="hover:text-gold">Coleções</a></li>
-              <li><a href="#produtos" className="hover:text-gold">Promoções</a></li>
+              <li><Link to="/" className="hover:text-gold">Início</Link></li>
+              <li><Link to="/produtos" className="hover:text-gold">Produtos</Link></li>
+              <li><Link to="/colecoes" className="hover:text-gold">Coleções</Link></li>
+              <li><Link to="/produtos" className="hover:text-gold">Promoções</Link></li>
             </ul>
           </div>
 

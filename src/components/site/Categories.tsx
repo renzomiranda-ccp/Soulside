@@ -1,12 +1,14 @@
 import { ArrowUpRight } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 import camisetas from "@/assets/products/nike-mini-swoosh.jpg";
 import moletons from "@/assets/products/nike-outline-modelo.jpg";
 import futebol from "@/assets/products/brasil-amarela.jpg";
+import type { ProductCategory } from "@/lib/products";
 
-const cats = [
-  { name: "Camisetas", img: camisetas },
-  { name: "Moletons & Hoodies", img: moletons },
-  { name: "Camisas de Futebol", img: futebol },
+const cats: { name: string; img: string; slug: ProductCategory }[] = [
+  { name: "Camisetas", img: camisetas, slug: "camisetas" },
+  { name: "Moletons & Hoodies", img: moletons, slug: "moletons" },
+  { name: "Camisas de Futebol", img: futebol, slug: "futebol" },
 ];
 
 export function Categories() {
@@ -20,7 +22,12 @@ export function Categories() {
       </div>
       <div className="grid md:grid-cols-3 gap-5">
         {cats.map((c) => (
-          <a key={c.name} href="#produtos" className="group relative overflow-hidden rounded-2xl aspect-[4/5] block">
+          <Link
+            key={c.name}
+            to="/produtos"
+            search={{ categoria: c.slug }}
+            className="group relative overflow-hidden rounded-2xl aspect-[4/5] block"
+          >
             <img src={c.img} alt={c.name} loading="lazy"
               className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
@@ -33,7 +40,7 @@ export function Categories() {
                 <ArrowUpRight className="h-5 w-5" />
               </div>
             </div>
-          </a>
+          </Link>
         ))}
       </div>
     </section>

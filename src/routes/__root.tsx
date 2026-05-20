@@ -7,6 +7,9 @@ import {
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
+import { CartProvider, useCart } from "@/lib/cart-context";
+import { CartDrawer } from "@/components/site/CartDrawer";
+import { WhatsappFab } from "@/components/site/WhatsappFab";
 
 import appCss from "../styles.css?url";
 
@@ -71,11 +74,27 @@ function RootShell({ children }: { children: React.ReactNode }) {
   );
 }
 
+function GlobalCartDrawer() {
+  const { cart, cartOpen, setCartOpen, setCart } = useCart();
+  return (
+    <CartDrawer
+      open={cartOpen}
+      onClose={() => setCartOpen(false)}
+      items={cart}
+      setItems={setCart}
+    />
+  );
+}
+
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   return (
     <QueryClientProvider client={queryClient}>
-      <Outlet />
+      <CartProvider>
+        <Outlet />
+        <GlobalCartDrawer />
+        <WhatsappFab />
+      </CartProvider>
     </QueryClientProvider>
   );
 }
