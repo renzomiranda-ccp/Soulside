@@ -1,12 +1,11 @@
 import pumaFront from "@/assets/products/puma-bmw-frente.jpg";
 import pumaBack from "@/assets/products/puma-bmw-costas.jpg";
-import nikeBranca1 from "@/assets/products/nike-branca-1.jpg";
-import nikeBranca2 from "@/assets/products/nike-branca-2.jpg";
-import nikeMoletomPreto1 from "@/assets/products/nike-moletom-preto-1.jpg";
-import nikeMoletomPreto2 from "@/assets/products/nike-moletom-preto-2.jpg";
+import nikeBranca1 from "@/assets/products/nike-mini-swoosh.jpg";
+import nikeBranca2 from "@/assets/products/nike-blazer.jpg";
+import nikeMoletomPreto1 from "@/assets/products/nike-outline-modelo.jpg";
+import nikeMoletomPreto2 from "@/assets/products/nike-outline-detalhe.jpg";
 import brasilAmarela from "@/assets/products/brasil-amarela.jpg";
-import brasilJordan1 from "@/assets/products/brasil-jordan-1.jpg";
-import brasilJordan2 from "@/assets/products/brasil-jordan-2.jpg";
+import brasilJordan1 from "@/assets/products/brasil-azul.jpg";
 
 export type ProductCategory = "camisetas" | "moletons" | "futebol";
 
@@ -31,7 +30,7 @@ export const products: Product[] = [
   { id: 2, name: "Camiseta Nike Oversized Off-White", price: 149.9, image: nikeBranca1, hoverImage: nikeBranca2, tag: "Novo", category: "camisetas" },
   { id: 3, name: "Moletom Nike Outline Multicolor Preto", price: 259.9, image: nikeMoletomPreto1, hoverImage: nikeMoletomPreto2, tag: "Novo", category: "moletons" },
   { id: 4, name: "Camisa Seleção Brasileira Home 2024", price: 199.9, image: brasilAmarela, category: "futebol" },
-  { id: 5, name: "Camisa Seleção Brasileira Away Jordan", price: 219.9, image: brasilJordan1, hoverImage: brasilJordan2, tag: "Mais Vendido", category: "futebol" },
+  { id: 5, name: "Camisa Seleção Brasileira Away Jordan", price: 219.9, image: brasilJordan1, tag: "Mais Vendido", category: "futebol" },
 ];
 
 export const WHATSAPP = "5519988654995";
