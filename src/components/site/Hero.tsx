@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { ArrowRight, Sparkles } from "lucide-react";
 import hero from "@/assets/hero-modelo-puma-bmw.jpg";
 import { waLink } from "@/lib/products";
@@ -12,30 +11,26 @@ export function Hero() {
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-32 pb-20 min-h-[100svh] flex items-center">
         <div className="max-w-2xl">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-3 py-1 text-xs text-gold mb-6"
+          <div
+            className="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-3 py-1 text-xs text-gold mb-6 animate-fade-in"
           >
             <Sparkles className="h-3.5 w-3.5" /> Nova Coleção Disponível
-          </motion.div>
+          </div>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.1 }}
-            className="font-display text-5xl sm:text-6xl lg:text-7xl font-bold leading-[1.05]"
+          <h1
+            className="font-display text-5xl sm:text-6xl lg:text-7xl font-bold leading-[1.05] animate-fade-in [animation-delay:100ms]"
           >
             Deixe seu Estilo<br /> Falar pela <span className="text-gold italic">Sua Alma.</span>
-          </motion.h1>
+          </h1>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.25 }}
-            className="mt-6 text-lg text-muted-foreground max-w-lg"
+          <p
+            className="mt-6 text-lg text-muted-foreground max-w-lg animate-fade-in [animation-delay:250ms]"
           >
             Moda masculina autêntica direto de Porto Ferreira. Envio em 24h. 2x sem juros.
-          </motion.p>
+          </p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.4 }}
-            className="mt-8 flex flex-wrap gap-3"
+          <div
+            className="mt-8 flex flex-wrap gap-3 animate-fade-in [animation-delay:400ms]"
           >
             <a href={waLink("Olá! Quero comprar na SoulSide")} target="_blank" rel="noreferrer"
               className="group inline-flex items-center gap-2 rounded-full bg-gold px-6 py-3.5 text-sm font-semibold text-gold-foreground hover:opacity-90 transition">
@@ -45,7 +40,7 @@ export function Hero() {
               className="inline-flex items-center gap-2 rounded-full border border-foreground/30 px-6 py-3.5 text-sm font-semibold hover:bg-foreground hover:text-background transition">
               Ver Coleção
             </a>
-          </motion.div>
+          </div>
         </div>
       </div>
 
